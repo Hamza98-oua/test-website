@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple E-Commerce</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+    body { background: #f8f9fa; color: #333; }
+
+    /* Header */
+    header {
+      background: #4CAF50;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 { font-size: 1.5rem; }
+    nav a {
+      color: white;
+      margin-left: 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover { color: #ffeb3b; }
+
+    /* Hero Banner */
+    .hero {
+      background: url("https://picsum.photos/1600/500?grayscale") center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 2px 2px 5px black;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    /* Products Grid */
+    .products {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .card h3 { margin: 1rem 0 0.5rem; }
+    .card p { color: #666; font-size: 0.9rem; }
+    .price { font-size: 1.2rem; font-weight: bold; margin: 0.5rem 0; }
+    .btn {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #4CAF50;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover { background: #45a049; }
+
+    /* Cart message */
+    #cart-message {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>ShopNow</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    Welcome to ShopNow – Find Your Style!
+  </section>
+
+  <!-- Products -->
+  <section class="products">
+    <div class="card">
+      <img src="https://picsum.photos/250/200?random=1" alt="Product 1">
+      <h3>Stylish Shoes</h3>
+      <p>Comfortable & trendy shoes for everyday wear.</p>
+      <div class="price">$49.99</div>
+      <button class="btn" onclick="addToCart('Stylish Shoes')">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="https://picsum.photos/250/200?random=2" alt="Product 2">
+      <h3>Casual T-Shirt</h3>
+      <p>Soft cotton t-shirt available in many colors.</p>
+      <div class="price">$19.99</div>
+      <button class="btn" onclick="addToCart('Casual T-Shirt')">Add to Cart</button>
+    </div>
+    <div class="card">
+      <img src="https://picsum.photos/250/200?random=3" alt="Product 3">
+      <h3>Classic Watch</h3>
+      <p>Elegant wristwatch for men & women.</p>
+      <div class="price">$99.99</div>
+      <button class="btn" onclick="addToCart('Classic Watch')">Add to Cart</button>
+    </div>
+  </section>
+
+  <!-- Cart Message -->
+  <div id="cart-message"></div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 ShopNow. All rights reserved.
+  </footer>
+
+  <script>
+    function addToCart(product) {
+      let cartMessage = document.getElementById("cart-message");
+      cartMessage.innerText = product + " added to cart!";
+      cartMessage.style.display = "block";
+
+      setTimeout(() => {
+        cartMessage.style.display = "none";
+      }, 2000);
+    }
+  </script>
+</body>
+</html>
